@@ -3,7 +3,7 @@
  */
 const Compare = {
   LESS_THAN: -1,
-  BIGGER_THAN: 1
+  BIGGER_THAN: 1,
 };
 function defaultCompare(a, b) {
   if (a === b) {
@@ -69,14 +69,14 @@ class BinarySearchTree {
     return current;
   }
   max() {
-    return this.maxNode(this.root)
+    return this.maxNode(this.root);
   }
   maxNode(node) {
-    let current = node
-    while(currnet!==null&&current.right!==null){
-      current = current.right
+    let current = node;
+    while (currnet !== null && current.right !== null) {
+      current = current.right;
     }
-    return current
+    return current;
   }
   inOrderTraverse(callback) {
     this.inOrderTraverseNode(this.root, callback);
@@ -89,13 +89,13 @@ class BinarySearchTree {
     }
   }
   preOrderTraverse(callback) {
-    this.preOrderTraverseNode(this.root,callback)
+    this.preOrderTraverseNode(this.root, callback);
   }
-  preOrderTraverseNode(node,key) {
-    if(node !== null){
-      callback(node.key)
-      this.preOrderTraverseNode(node.left,key)
-      this.preOrderTraverseNode(node.right,key)
+  preOrderTraverseNode(node, key) {
+    if (node !== null) {
+      callback(node.key);
+      this.preOrderTraverseNode(node.left, key);
+      this.preOrderTraverseNode(node.right, key);
     }
   }
   postOrderTraverse() {}
@@ -108,24 +108,24 @@ class BinarySearchTree {
       node.left = this.removeNode(node.left, key);
       return node;
     } else if (node.key < key) {
-      node.right = this.removeNode(node.right,,key)
-      return node
-    }else{
-      if(node.left == null && node.right == null){
-        node = null
-        return node 
+      node.right = this.removeNode(node.right, key);
+      return node;
+    } else {
+      if (node.left == null && node.right == null) {
+        node = null;
+        return node;
       }
-      if(node.left == null){
-        node = node.right
-        return node
-      }else if(node.right == null){
-        node = node.left
-        return node
+      if (node.left == null) {
+        node = node.right;
+        return node;
+      } else if (node.right == null) {
+        node = node.left;
+        return node;
       }
-      let aux = this.minNode(node.right)
-      node.key = aux.key
-      node.right = this.removeNode(node.right,aux.key)
-      return node
+      let aux = this.minNode(node.right);
+      node.key = aux.key;
+      node.right = this.removeNode(node.right, aux.key);
+      return node;
     }
   }
 }
@@ -145,6 +145,6 @@ tree.insert(14);
 tree.insert(20);
 tree.insert(18);
 tree.insert(25);
-tree.inOrderTraverse(val => {
+tree.inOrderTraverse((val) => {
   console.log(val);
 });
