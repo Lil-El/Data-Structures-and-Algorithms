@@ -1,5 +1,5 @@
 // 反转链表  1 3 4 5 6 7 -> 7 6 5 4 3 1
-
+// https://blog.csdn.net/weixin_44057301/article/details/107058170
 let node = {
   val: 1,
   next: {
